@@ -9,7 +9,7 @@ This project provides APIs for performing CRUD operations on a services database
 **Endpoint:** `/api/v1/login/`
 
 - **Method:** `POST`
-- **Description:** Authenticates a user and generates an access token.
+- **Description:** Authenticates a user.
 - **Request Body:**
   - `username`: The username of the user.
   - `password`: The password of the user.
