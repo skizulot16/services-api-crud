@@ -13,11 +13,6 @@ This project provides APIs for performing CRUD operations on a services database
 - **Request Body:**
   - `username`: The username of the user.
   - `password`: The password of the user.
-- **Response:**
-  - `token`: The access token generated for the authenticated user.
-- **Status Codes:**
-  - `200 OK`: Successful authentication and token generation.
-  - `401 Unauthorized`: Invalid credentials provided.
 
 ### Get All Services
 
