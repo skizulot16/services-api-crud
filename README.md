@@ -32,7 +32,7 @@ This project provides APIs for performing CRUD operations on a services database
 
 ### Add Service
 
-**Endpoint:** `/api/v1/servicedetails/`
+**Endpoint:** `/api/v1/services/`
 
 - **Method:** `POST`
 - **Description:** Adds a new service to the database.
