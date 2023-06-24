@@ -13,7 +13,10 @@ This project provides APIs for performing CRUD operations on a services database
 - **Request Body:**
   - `username`: The username of the user.
   - `password`: The password of the user.
-
+- **Response Body:**
+  - Authentication Status
+  - on succesful authentication, access token and refresh token from jwt
+    
 ### Get All Services
 
 **Endpoint:** `/api/v1/services/`
