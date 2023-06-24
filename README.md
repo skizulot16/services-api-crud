@@ -13,12 +13,10 @@ This project provides APIs for performing CRUD operations on a services database
 - **Request Body:**
   - `username`: The username of the user.
   - `password`: The password of the user.
-- **Response:**
-  - `token`: The access token generated for the authenticated user.
-- **Status Codes:**
-  - `200 OK`: Successful authentication and token generation.
-  - `401 Unauthorized`: Invalid credentials provided.
-
+- **Response Body:**
+  - Authentication Status
+  - on succesful authentication, access token and refresh token from jwt
+    
 ### Get All Services
 
 **Endpoint:** `/api/v1/services/`
@@ -32,7 +30,7 @@ This project provides APIs for performing CRUD operations on a services database
 
 ### Add Service
 
-**Endpoint:** `/api/v1/servicedetails/`
+**Endpoint:** `/api/v1/services/`
 
 - **Method:** `POST`
 - **Description:** Adds a new service to the database.
