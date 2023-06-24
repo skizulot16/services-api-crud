@@ -9,5 +9,5 @@ urlpatterns = [
     path('',include(router.urls)),
     path('login/', LoginView.as_view()),
     path('services/',ServiceAPIView.as_view()),
-    path('servicedetails/<int:pk>/',ServiceDetailAPIView.as_view())
+    path('servicedetails/<int:pk>/',ServiceDetailAPIView.as_view()),
 ]

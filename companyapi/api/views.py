@@ -5,6 +5,8 @@ from .serializers import CompanySerializer,EmpSerializer,ServiceSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.contrib.auth import authenticate,login
+from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework.permissions import IsAuthenticated
 from .models import Service
 # Create your views here.
 class CompanyViewset(viewsets.ModelViewSet):
@@ -13,16 +15,22 @@ class CompanyViewset(viewsets.ModelViewSet):
 class EmpViewset(viewsets.ModelViewSet):
     queryset=employee.objects.all()
     serializer_class=EmpSerializer
+
 class LoginView(APIView):
     def post(self, request):
         username = request.data['username']
         password = request.data['password']
         user = authenticate(username=username, password=password)
         if user is not None:
-            return Response({'status':'auth success'})   
+            refresh=RefreshToken.for_user(user)
+            return Response({'status':'auth success',
+                            'access_token':str(refresh.access_token),
+                            "refresh":str(refresh)})   
         else:
-            return Response({'status':'not authenticated'})
+            return Response({'status':'not authenticated'},status=status.HTTP_401_UNAUTHORIZED)
+        
 class ServiceAPIView(APIView):
+    permission_classes= [IsAuthenticated]
     def get(self, request):
         services = Service.objects.all()
         serializer = ServiceSerializer(services, many=True)
